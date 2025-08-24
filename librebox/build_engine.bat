@@ -48,7 +48,7 @@ if %errorlevel% neq 0 ( echo.[ERROR] Librebox build failed. & popd & exit /b 1 )
 
 echo.
 echo [4/4] Installing to 'dist'...
-cmake --install . --prefix "%DIST_DIR%" --config %CMAKE_BUILD_TYPE%
+DESTDIR="$DIST_DIR" cmake --install . --config "${CMAKE_BUILD_TYPE}"
 if %errorlevel% neq 0 ( echo.[ERROR] Installation failed. & popd & exit /b 1 )
 
 popd
